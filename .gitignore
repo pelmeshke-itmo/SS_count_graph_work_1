@@ -1,8 +1,9 @@
-/out
 /auxil
 /.idea
 /.vs
 *.log
 *.aux
 *.toc
-*.pdf
+*.synctex.gz
+*.synctex.gz.sum.synctex
+
