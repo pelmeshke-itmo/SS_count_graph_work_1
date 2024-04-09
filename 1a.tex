@@ -1,0 +1,111 @@
+А) Дано пространство многочленов с вещественными коэффициентами, степени не выше третьей, определенных на отрезке $[-1; 1]$.
+
+Проведите исследование:
+\begin{enumerate}
+    \item Проверьте, что система векторов $B=\left\{1,\ t,\ t^2\right\}$ является базисом этого пространства. Ортогонализируйте систему (построенный ортогональный базис обозначьте $B_H$)
+    \item Выпишите первые четыре (при $n=0,1,2,3$) многочлена Лежандра:
+
+    $\displaystyle L_n\left(t\right)=\frac{1}{2^nn!}\ \frac{d^n}{dt^n}\left(\left(t^2-1\right)^n\right)\text{, где }\frac{d^n}{dt^n}\left(y\left(t\right)\right)$- производная $n$ - ого порядка функции $y\left(t\right)$
+    \item Найдите координаты полученных многочленов $L_n\left(t\right)$ в базисе $B_H$. Сделайте вывод об ортогональности системы векторов $L_n\left(t\right)$.
+    \item Разложите данный многочлен $P_3\left(t\right)$ (см. варианты) по системе векторов $L_n\left(t\right)$.
+\end{enumerate}
+
+\[P_3\left(t\right)=2t^3-t^2+t+2\]
+
+\vspace{10mm}
+
+\textbf{Решение.}
+
+\begin{enumerate}
+    \item Cистема векторов $B=\left\{1,\ t,\ t^2\right\}$ не является базисов, так как при помощи нее нельзя составлять вектора вида $P_3(t) = t^3 + P_2(t)$
+
+    Однако система $B$ уже ортогональная, поэтому чтобы получить базис, следует добавить в систему вектор $t^3$:
+
+    \[B_H = \left\{1,\ t,\ t^2, t^3\right\}\]
+
+    \item Выпишем первые четыре многочлена Лежандра:
+
+    $\displaystyle L_0\left(t\right)=\frac{1}{2^0 0!}\ \left(\left(t^2-1\right)^0\right) = 1$
+
+    $\displaystyle L_1\left(t\right)=\frac{1}{2^1 1!}\ \frac{d}{dt}\left(t^2-1\right) = \frac{1}{2}\ 2t = t$
+
+    $\displaystyle L_2\left(t\right)=\frac{1}{2^2 2!}\ \frac{d^2}{dt^2}\left(\left(t^2-1\right)^2\right) =
+    \frac{1}{8}\ \frac{d^2}{dt^2}\left(t^4 - 2t^2 + 1\right) = \frac{1}{8}\ \frac{d}{dt}\left(4t^3 - 4t\right) = \frac{12t^2 - 4}{8} = \frac{3t^2 - 1}{2}$
+
+    $\displaystyle L_3\left(t\right)=\frac{1}{2^3 3!}\ \frac{d^3}{dt^3}\left(\left(t^2-1\right)^3\right) =
+    \frac{1}{48}\ \frac{d^2}{dt^2}\left(3 \left(t^2-1\right)^2 2t\right) = \frac{1}{48}\ \frac{d^2}{dt^2}\left(6t^5 - 12t^3 + 6t\right) =
+    \frac{1}{48}\ \frac{d}{dt}\left(30t^4 - 36t^2 + 6\right) = \frac{120t^3 - 72t}{48} = \frac{5t^3 - 3t}{2}$
+
+    \item Представим базис $B_H$ как $\{e_1 = 1, e_2 = t, e_3 = t^2, e_4 = t^3\}$, тогда многочлены Лежандра можно разложить по базису $B_H$ так:
+
+    $\displaystyle L_0\left(t\right) = 1 = e_1$
+
+    $\displaystyle L_1\left(t\right) = t = e_2$
+
+    $\displaystyle L_2\left(t\right) = \frac{3t^2 - 1}{2} = \frac{3}{2} e_3 - \frac{1}{2} e_1$
+
+    $\displaystyle L_3\left(t\right) = \frac{5t^3 - 3t}{2} = \frac{5}{2} e_4 - \frac{3}{2} e_2$
+
+    Определим скалярное произведение на нашем пространстве, как:
+
+    $(P_3(t), Q_3(t)) = a_3 b_3 + a_2 b_2 + a_1 b_1 + a_0 b_0$, где $P_3(t) = a_3 t^3 + a_2 t^2 + a_1 t + a_0$, $Q_3(t) = b_3 t^3 + b_2 t^2 + b_1 t + b_0$
+
+    Тогда система $L = \{L_0, L_1, L_2, L_3\}$ неортогональна, так как $(L_0, L_2) = -\frac{1}{2}$, что говорит о том, что $L_0 \not\perp L_2$
+
+
+    \item Чтобы разложить $P_3(t)=2t^3-t^2+t+2$ на систему $L$, режим уравнение $c_0 L_0(t) + c_1 L_1(t) + c_2 L_2(t) + c_3 L_3(t) = P_3(t)$ или в матричном виде:
+
+    \vspace{5mm}
+
+
+    $\displaystyle \begin{pmatrix}
+         1 & 0 & -\frac{1}{2} & 0 \\
+         0 & 1 & 0 & -\frac{3}{2} \\
+         0 & 0 & \frac{3}{2} & 0 \\
+         0 &  & 0 & \frac{5}{2} \\
+    \end{pmatrix}
+    \begin{pmatrix}
+         c_0 \\ c_1 \\ c_2 \\ c_3
+    \end{pmatrix} =
+    \begin{pmatrix}
+         2 \\ -1 \\ 1 \\ 2
+    \end{pmatrix}$
+
+    \vspace{5mm}
+
+    \begin{multicols}{3}
+    $\displaystyle \begin{cases}
+         c_0 + -\frac{1}{2}c_2 = 2 \\
+         c_1 - \frac{3}{2}c_3 = -1 \\
+         \frac{3}{2}c_2 = 1 \\
+         \frac{5}{2}c_3 = 2 \\
+    \end{cases}$
+
+    $\displaystyle \begin{cases}
+         c_0 + -\frac{1}{2}c_2 = 2 \\
+         c_1 - \frac{3}{2}c_3 = -1 \\
+         c_2 = \frac{2}{3} \\
+         c_3 = \frac{4}{5} \\
+    \end{cases}$
+
+    $\displaystyle \begin{cases}
+         c_0 = \frac{7}{3} \\
+         c_1 = \frac{1}{5} \\
+         c_2 = \frac{2}{3} \\
+         c_3 = \frac{4}{5} \\
+    \end{cases}$
+    \end{multicols}
+
+    \vspace{5mm}
+
+    Проверим это:
+
+    $\displaystyle P_3(t) = 2t^3 - t^2 + t + 2 = \frac{7}{3}L_0 + \frac{1}{5}L_1 + \frac{2}{3}L_2 + \frac{4}{5}L_3 =
+    \frac{7}{3} + \frac{1}{5}t + \frac{2}{3}\frac{3t^2 - 1}{2} + \frac{4}{5}\frac{5t^3 - 3t}{2} =
+    \frac{7}{3} + \frac{1}{5}t + t^2 - \frac{1}{3} + 2t^3 - \frac{6}{5}t = 2 - t + t^2 + 2t^3$ - верно
+
+    \vspace{5mm}
+
+    Тогда $\displaystyle P_3(t) = \frac{7}{3}L_0(t) + \frac{1}{5}L_1(t) + \frac{2}{3}L_2(t) + \frac{4}{5}L_3(t)$
+\end{enumerate}
+
