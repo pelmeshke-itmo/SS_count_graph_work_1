@@ -1,4 +1,4 @@
-Б) Дано пространство $R$ функций, непрерывных на отрезке $[-\pi; \pi]$ со скалярным произведением $(f, g) = \int^\pi_{-\pi} f(t)g(t)dt$ и длиной вектора $\|f\| = sqrt{(f, f)}$.
+Б) Дано пространство $R$ функций, непрерывных на отрезке $[-\pi; \pi]$ со скалярным произведением $(f, g) = \int^\pi_{-\pi} f(t)g(t)dt$ и длиной вектора $\|f\| = \sqrt{(f, f)}$.
 
 Тригонометрические многочлены $P_n(t) = \frac{a_0}{2} + a_1 cost + b_1 \sin t + \dots + a_n \cos nt + b_n \sin nt$, где $a_k, b_k$ - вещественные коэффициенты,
 образуют подпространство $P$ пространства $R$.
@@ -32,8 +32,8 @@
     \item Линейной комбинацией системы функций $\left\{1, \cos t, \sin t, \dots \cos nt, \sin nt\right\}$ является пространство $P_n(t)$, значит эта система -- базис пространства. \\
     Этот базис ортогональный, для любых двух векторов $e_i, e_j (i \neq j)$ $(e_i, e_j) = 0$: \\
     \begin{trivlist}
-        \item $\displaystyle (1, \sin nt) = \int^\pi_{-\pi} \sin nt dt = \frac{1}{n} \cos n\pi - \frac{1}{n} \cos n -\pi = 0$ (так как косинус чётная функция.)
-        \item $\displaystyle (1, \cos nt) = \int^\pi_{-\pi} \cos nt dt = \frac{1}{n} \sin n\pi - \frac{1}{n} \sin n -\pi = \frac{2}{n} \sin n\pi = 0$ (так как $n$ - целое число $\sin n\pi = 0$)
+        \item $\displaystyle (1, \sin nt) = \int^\pi_{-\pi} \sin nt dt = \frac{1}{n} \cos n\pi - \frac{1}{n} \cos (-\pi n) = 0$ (так как косинус чётная функция.)
+        \item $\displaystyle (1, \cos nt) = \int^\pi_{-\pi} \cos nt dt = \frac{1}{n} \sin n\pi - \frac{1}{n} \sin (-\pi n)  = \frac{2}{n} \sin n\pi = 0$ (так как $n$ - целое число $\sin n\pi = 0$)
         \item $\displaystyle (\sin nt, \cos mt) = \int^\pi_{-\pi} \sin nt \cos mt dt = \int^\pi_{-\pi} \frac{1}{2}(\sin (n - m)t + \sin (n + m)t dt) = \\
         \frac{1}{2} \left(\int^\pi_{-\pi} \sin (n - m)t dt + \int^\pi_{-\pi} \sin (n + m)t dt\right) = 0$ так как $\displaystyle \int^\pi_{-\pi} \sin nt dt = 0$ при целом $n$ (см. выше).
     \end{trivlist}
@@ -43,25 +43,25 @@
         \item $\displaystyle \sqrt{\int^\pi_{-\pi} sin^2 nt dt} = \sqrt{\int^\pi_{-\pi} \frac{1 - \cos 2nt}{2} dt} = \sqrt{\frac{2\pi}{2} - 0} = \sqrt{\pi}$
         \item $\displaystyle \sqrt{\int^\pi_{-\pi} cos^2 nt dt} = \sqrt{\int^\pi_{-\pi} \frac{1 + \cos 2nt}{2} dt} = \sqrt{\frac{2\pi}{2} + 0} = \sqrt{\pi}$
     \end{trivlist}
-    Итак, нормированный базис: $\displaystyle {\frac{1}{\sqrt{2\pi}}, \frac{\sin t}{\sqrt{\pi}}, \frac{\cos t}{\sqrt{\pi}}, \dots \frac{\sin nt}{\sqrt{\pi}}, \frac{\cos nt}{\sqrt{\pi}} }$
+    Итак, нормированный базис: $\displaystyle \left\{\frac{1}{\sqrt{2\pi}}, \frac{\sin t}{\sqrt{\pi}}, \frac{\cos t}{\sqrt{\pi}}, \dots \frac{\sin nt}{\sqrt{\pi}}, \frac{\cos nt}{\sqrt{\pi}} \right\}$
 
     \vspace{5mm}
     \item Чтобы найти проекции $f(t)$ на векторы базиса найдём скалярное произведение. \\
     \begin{trivlist}
         \item $\displaystyle a_0 = \int^\pi_{-\pi} \frac{1}{\sqrt{2\pi}} f(t) dt = \frac{1}{\sqrt{2\pi}} \int^\pi_{-\pi} -3t dt = \frac{-3}{\sqrt{2\pi}} \int^\pi_{-\pi} t dt = \frac{-3}{\sqrt{2\pi}} \cdot \left(\frac{\pi^2}{2} - \frac{{(-\pi)}^2}{2}\right) = 0$
-        \item $\displaystyle a_n = \int^\pi_{-\pi} \frac{\cos nt}{\sqrt{\pi}} f(t) dt = \frac{1}{\sqrt{\pi}} \int^\pi_{-\pi} -3t \cos nt dt = \frac{-3}{\sqrt{\pi}} \int^\pi_{-\pi} t \cos nb dt =$ \\
+        \item $\displaystyle a_n = \int^\pi_{-\pi} \frac{\cos nt}{\sqrt{\pi}} f(t) dt = \frac{1}{\sqrt{\pi}} \int^\pi_{-\pi} -3t \cos nt dt = \frac{-3}{\sqrt{\pi}} \int^\pi_{-\pi} t \cos nt dt = ...$ \\
         $\displaystyle \int t n \cos(nt) dt = \int t dsin(nt) = t \sin(nt) - \int \sin(nt) dt = \frac{t \sin(nt) + \frac{1}{n} \cos(nt)}{n} = \frac{nt \sin(nt) + \cos(nt)}{n^2}$ \\
-        $\displaystyle = \frac{-3}{\sqrt{\pi}} \cdot \left(\frac{nt \sin nt + \cos nt}{n^2}\Big|^\pi_{-\pi}\right) = \frac{-3}{\sqrt{\pi}}\left(\left(\frac{n\pi \sin (n\pi)}{n^2} - \frac{-n\pi \sin (-\pi n)}{n^2}\right) + \left(\frac{\cos (n\pi)}{n^2}] - \frac{\cos (-\pi n)}{n^2}\right)\right) = \frac{-3}{\sqrt{\pi}}(0 + 0) = 0$
-        \item $\displaystyle b_n = \int^\pi_{-\pi} \frac{\sin nt}{\sqrt{\pi}} f(t) dt = \frac{1}{\sqrt{\pi}} \int^\pi_{-\pi} -3t \sin nt dt = \frac{-3}{\sqrt{\pi}} \int^\pi_{-\pi} t \sin nt dt =$ \\
-        $\displaystyle \int t \sin(nt) dt = \frac{1}{n} \int t d cod (nt) = -\frac{1}{n}\left(t \cos(nt) - \int \cos(nt) dt\right) = \frac{-\left(t \cos(nt) - \frac{1}{n} \sin(nt)\right)}{n} = -\left(\frac{nt \cos(nt) - \sin(nt)}{n^2}\right)$ \\
-        $\displaystyle = \frac{3}{\sqrt{\pi}}\left(\frac{nt \cos(nt) - \sin(nt)}{n^2}\right)\Big|^\pi_{-\pi} = \frac{3}{\sqrt{\pi}}\left(\left(\frac{n \pi \cos(n \pi)}{n^2} - \frac{-\pi n \cos(-\pi n)}{n^2}\right) - \left(\frac{\sin(\pi n)}{n^2} - \frac{\sin(-\pi n)}{n^2}\right)\right) = \frac{3}{\sqrt{\pi}}(\frac{2\pi n \cos(n\pi) - 2sin(n\pi)}{n^2} = \frac{6n\pi \cos(n\pi) - 6sin(n\pi)}{n^2\sqrt{\pi}}$
+        $\displaystyle ...= \frac{-3}{\sqrt{\pi}} \cdot \left(\frac{nt \sin nt + \cos nt}{n^2}\Big|^\pi_{-\pi}\right) = \frac{-3}{\sqrt{\pi}}\left(\left(\frac{n\pi \sin (n\pi)}{n^2} - \frac{-n\pi \sin (-\pi n)}{n^2}\right) + \left(\frac{\cos (n\pi)}{n^2} - \frac{\cos (-\pi n)}{n^2}\right)\right) = \frac{-3}{\sqrt{\pi}}(0 + 0) = 0$
+        \item $\displaystyle b_n = \int^\pi_{-\pi} \frac{\sin nt}{\sqrt{\pi}} f(t) dt = \frac{1}{\sqrt{\pi}} \int^\pi_{-\pi} -3t \sin nt dt = \frac{-3}{\sqrt{\pi}} \int^\pi_{-\pi} t \sin nt dt = ...$ \\
+        $\displaystyle \int t \sin(nt) dt = \frac{1}{n} \int t d \cos (nt) = -\frac{1}{n}\left(t \cos(nt) - \int \cos(nt) dt\right) = \frac{-\left(t \cos(nt) - \frac{1}{n} \sin(nt)\right)}{n} = -\left(\frac{nt \cos(nt) - \sin(nt)}{n^2}\right)$ \\
+        $\displaystyle ... = \frac{3}{\sqrt{\pi}}\left(\frac{nt \cos(nt) - \sin(nt)}{n^2}\right)\Big|^\pi_{-\pi} = \frac{3}{\sqrt{\pi}}\left(\left(\frac{n \pi \cos(n \pi)}{n^2} - \frac{-\pi n \cos(-\pi n)}{n^2}\right) - \left(\frac{\sin(\pi n)}{n^2} - \frac{\sin(-\pi n)}{n^2}\right)\right) = \frac{3}{\sqrt{\pi}}(\frac{2\pi n \cos(n\pi) - 2sin(n\pi)}{n^2} = \frac{6n\pi \cos(n\pi) - 6sin(n\pi)}{n^2\sqrt{\pi}}$
     \end{trivlist}
     \vspace{5mm}
     \item Минимально отстоящий многочлен:
 
-    $\displaystyle P_n(t) = \sum^\infty_{n=1} \left(\frac{6n\pi \cos(n\pi) - 6sin(n\pi)}{\sqrt{\pi}n^2} \frac{\sin (nt)}{\sqrt{\pi}}\right) = \sum^\infty_{n=1} \left(\frac{6cos(n\pi)}{n} \sin(nt)\right) = \sum^\infty_{n=1}\left(\frac{(-1)^n 6}{n} \sin(nt)\right)$
+    $\displaystyle P_n(t) = \sum^\infty_{n=1} \left(\frac{6n\pi \cos(n\pi) - 6sin(n\pi)}{\sqrt{\pi}n^2} \cdot \frac{\sin (nt)}{\sqrt{\pi}}\right) = \sum^\infty_{n=1} \left(\frac{6cos(n\pi)}{n} \sin(nt)\right) = \sum^\infty_{n=1}\left(\frac{(-1)^n 6}{n} \sin(nt)\right)$
     \vspace{5mm}
-    \item Графики функций:
+    \item Графики функций\:
     \vspace{5mm}
 
     \includegraphics[width=0.5\textwidth]{images/1b_a}
@@ -71,5 +71,5 @@
     \includegraphics[width=0.5\textwidth]{images/1b_c}
 
     \vspace{5mm}
-    \item При росте порядка многочлен больше приближается к функции $f(t)$ на отрезке $[-\pi, \pi]$
+    \item При росте порядка многочлен больше приближается к функции $f(t)$ на отрезке $[-\pi, \pi]$.
 \end{enumerate}
